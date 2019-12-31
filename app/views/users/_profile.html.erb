@@ -1,0 +1,46 @@
+<div class="column is-one-quarter">
+	<nav class="panel">
+		<p class="panel-heading">Profile</p>
+		<div class="panel-block">
+			<article class="media">
+				<div class="media-content">
+					<div class="content">
+						<p>
+							<strong><%= @user.name %></strong><br />
+							<small>@<%= @user.user_name %></small>
+						</p>
+						<% if @user != current_user %>
+                        	<% if @user.following?(current_user) %>
+							<p><%= link_to "Unfollow", relations_path(user_id: @user.id),method: :delete, class:"button is-info" %></p>
+							<% else %>
+							<p><%= link_to "Follow", relations_path(user_id: @user.id),method: :create, class:"button is-info" %></p>
+                        	<% end %>
+						<% end %>
+					</div>
+				</div>
+			</article>
+		</div>
+		<div class="panel-block">
+			<div class="level is-mobile">
+				<div class="level-item has-centered-text">
+					<div>
+						<p class="heading">Tweets</p>
+						<p class="title is-6"><%= @user.tweets.count %></p>
+					</div>
+				</div>
+				<div class="level-item has-centered-text">
+					<div>
+						<p class="heading">Following</p>
+						<p class="title is-6"><%= @user.following.count %></p>
+					</div>
+				</div>
+					<div class="level-item has-centered-text">
+					<div>
+						<p class="heading">Followers</p>
+						<p class="title is-6"><%= @user.followers.count %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+</div>

@@ -1,0 +1,39 @@
+<div class="column">
+	<nav class="panel">
+		<p class="panel-heading">Following</p>
+	<% @following.each do | following | %>
+	<div class="panel-block">
+		<article class="media">
+			<div class="media-content">
+				<div class="content">
+					<p>
+						<strong><%= following.name %></strong>
+						<small>@<%= following.user_name %></small>
+					</p>
+				</div>
+			</div>
+		</article>
+	</div>
+    <% end %>
+	</nav>
+</div>
+
+<div class="column">
+	<nav class="panel">
+		<p class="panel-heading">Followers</p>
+	<% @followers.each do | follower | %>
+	<div class="panel-block">
+		<article class="media">
+			<div class="media-content">
+				<div class="content">
+					<p>
+						<strong><%= follower.name %></strong>
+						<small>@<%= follower.user_name %></small>
+					</p>
+				</div>
+			</div>
+		</article>
+	</div>
+    <% end %>
+	</nav>
+</div>
